@@ -12,11 +12,15 @@ namespace SeURL.Controllers
         MakaleContext db = new MakaleContext();  
         
         [Route("")]
+        
+        [Route("Home/Index")]
         public ActionResult Index()
         {
             return View(db.Makale.ToList());
         }
         [Route("makale/{baslik}-{id:int}")]
+        [Route("Home/makale/{baslik}-{id:int}")]
+
         public ActionResult Detay(int id)
         {
             var makale = db.Makale.Where(m => m.Id == id).SingleOrDefault();
